@@ -7,11 +7,15 @@ const StyledTd = styled.td`
   width: 50px;
   text-align: center;
 `;
-const Keypad = () => {
+const Keypad = ({ enterShot }) => {
+  const handleClick = (event) => {
+    enterShot(event.target.textContents);
+  };
+
   return (
     <div align='center'>
       <table>
-        <tbody>
+        <tbody onClick={handleClick}>
           <tr>
             <StyledTd>0</StyledTd>
             <StyledTd>1</StyledTd>
@@ -30,7 +34,6 @@ const Keypad = () => {
           <tr>
             <StyledTd>9</StyledTd>
             <StyledTd>10</StyledTd>
-            <StyledTd>:P</StyledTd>
           </tr>
         </tbody>
       </table>

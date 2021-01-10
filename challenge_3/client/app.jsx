@@ -3,26 +3,51 @@ import Keypad from './Keypad';
 import Scorecard from './Scorecard';
 
 const App = () => {
-  // conditionally render score states
-  // const [shot, setShot] = useState(0);
-  // const [shot1, setShot1] = useState('');
+  const [shot, setShot] = useState(0);
+  const [frame, setFrame] = useState(0);
 
-  // const enterShot = (score) => {
-  //   setShot(shot + 1);
-  //   // 22 total potential shots
-  //   while (shot < 22) {
-  //     setShot1(score);
-  //   }
-  //   console.log(shot1);
-  // };
+  const [shotScores, setShotScores] = useState([
+    [0, 0],
+    [0, 0],
+    [0, 0],
+    [0, 0],
+    [0, 0],
+    [0, 0],
+    [0, 0],
+    [0, 0],
+    [0, 0],
+    [0, 0, 0],
+  ]);
+  const [frameScores, setFrameScores] = useState([
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+  ]);
 
+  const enterShot = (score) => {
+    while (frame < 10) {
+      shotScores[frame][0] === 0
+        ? setShotScores[frame][0](score)
+        : setShotScores[frame][1](score);
+      setFrame(frame + 0.5);
+    }
+  };
+
+  const calcFrameScore = () => {};
   // calculate frame score function
 
   return (
     <div>
       <h1 align='center'>Let's Bowl!</h1>
-      <Keypad />
-      <Scorecard />
+      <Keypad enterShot={enterShot} />
+      <Scorecard shotScores={shotScores} frameScores={frameScores} />
     </div>
   );
 };
