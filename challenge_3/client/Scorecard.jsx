@@ -1,11 +1,11 @@
 import React from 'react';
 import styled from 'styled-components';
 
-const Scorecard = () => {
-  const StyledTd = styled.td`
-    border: 1px solid black;
-  `;
+const StyledTd = styled.td`
+  border: 1px solid black;
+`;
 
+const Scorecard = () => {
   return (
     <div>
       <h2 align='center'>Scorecard:</h2>
@@ -25,7 +25,7 @@ const Scorecard = () => {
           </tr>
           <tr>
             <td align='right'>
-              <table cellpadding='10'>
+              <table cellPadding='10'>
                 <tbody>
                   <tr align='top'>
                     <td>{/* first shot of frame score */}</td>
